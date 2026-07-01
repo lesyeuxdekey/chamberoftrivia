@@ -1,6 +1,6 @@
 package com.keydan.chamberoftrivia.Model.Enums;
 
-public enum Dificulty {
+public enum Difficulty {
     EASY,
     MEDIUM,
     HARD

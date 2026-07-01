@@ -1,12 +1,10 @@
 package com.keydan.chamberoftrivia.Model;
 
-import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,28 +12,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Entity
-@Table(name = "question_answer")
+@Table(name = "categories")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class QuizAnswerModel {
-     @Id
+public class CategoryModel {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    private QuizSessionModel quizSession;
+    @Column(nullable = false, unique = true)
+    private String name;
 
-    @ManyToOne
-    private Question question;
-
-    private Integer selectedAnswerIndex;
-
-    private Boolean correct;
-
-    private Integer earnedPoints;
-
+    @Column(length = 500)
+    private String description;
 }

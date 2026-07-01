@@ -1,6 +1,6 @@
 package com.keydan.chamberoftrivia.Model;
 
-import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,27 +15,28 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "question_answer")
+@Table(name = "game_sessions")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class QuizAnswerModel {
-     @Id
+public class QuizSessionModel {
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    private QuizSessionModel quizSession;
+    private UserModel user;
 
-    @ManyToOne
-    private Question question;
+    private LocalDateTime startTime;
 
-    private Integer selectedAnswerIndex;
+    private LocalDateTime endTime;
 
-    private Boolean correct;
+    private Integer score;
 
-    private Integer earnedPoints;
+    private Integer maxScore;
+
+    private Boolean won;
 
 }

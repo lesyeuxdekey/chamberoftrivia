@@ -1,14 +1,32 @@
 package com.keydan.chamberoftrivia.Repository;
 
-import com.keydan.chamberoftrivia.Model.QuestionModel;
+import java.util.List;
+import java.util.Locale.Category;
+
+import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.keydan.chamberoftrivia.Model.Enums.Difficulty;
+import com.keydan.chamberoftrivia.Model.Enums.QuestionType;
+import com.keydan.chamberoftrivia.Model.QuestionModel;
 
 @Repository
 public interface QuestionRepository extends JpaRepository<Long, QuestionModel> {
-    @Query(value = "SELECT * FROM question ORDER BY RAND() LIMIT 10", nativeQuery = true)
-    List<QuestionModel> findRandomQuestions();
+      List<Question> findByCategory(Category category);
+
+    List<Question> findByQuestionType(QuestionType questionType);
+
+    List<Question> findByDifficulty(Difficulty difficulty);
+
+    boolean existsByQuestionText(String questionText);
+
+    /*
+    @Query(value = """
+    SELECT *
+    FROM questions
+    ORDER BY RAND()
+    LIMIT :amount
+    """, nativeQuery = true)
+    List<Question> findRandomQuestions(int amount); */
 }
