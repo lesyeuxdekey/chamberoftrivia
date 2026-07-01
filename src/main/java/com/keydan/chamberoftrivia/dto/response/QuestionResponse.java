@@ -19,10 +19,16 @@ import lombok.Setter;
 public class QuestionResponse {
 
     private Long id;
+
     private String questionText;
+
     private Difficulty difficulty;
+
     private Integer points;
+
     private QuestionType questionType;
+
     private String categoryName;
+
     private List<String> answerOptions;
 }

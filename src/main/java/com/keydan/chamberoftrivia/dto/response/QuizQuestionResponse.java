@@ -18,7 +18,10 @@ import lombok.Setter;
 public class QuizQuestionResponse {
 
     private Long id;
+
     private String questionText;
+
     private QuestionType questionType;
+
     private List<String> answerOptions;
 }

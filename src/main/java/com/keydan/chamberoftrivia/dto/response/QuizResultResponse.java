@@ -15,7 +15,9 @@ import lombok.Setter;
 @Builder
 public class QuizResultResponse {
 
-    private Integer score;
+     private Integer score;
+
     private Integer maxScore;
+
     private QuizResult result;
 }

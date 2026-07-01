@@ -1,7 +1,6 @@
 package com.keydan.chamberoftrivia.Model;
 
 import java.util.List;
-import java.util.Locale.Category;
 
 import com.keydan.chamberoftrivia.Model.Enums.Difficulty;
 import com.keydan.chamberoftrivia.Model.Enums.QuestionType;
@@ -39,7 +38,7 @@ public class QuestionModel {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
+    private CategoryModel category;
 
     @Enumerated(EnumType.STRING)
     private Difficulty difficulty;

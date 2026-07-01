@@ -12,7 +12,7 @@ import com.keydan.chamberoftrivia.Model.Enums.QuestionType;
 import com.keydan.chamberoftrivia.Model.QuestionModel;
 
 @Repository
-public interface QuestionRepository extends JpaRepository<Long, QuestionModel> {
+public interface QuestionRepository extends JpaRepository<QuestionModel, Long> {
       List<Question> findByCategory(Category category);
 
     List<Question> findByQuestionType(QuestionType questionType);

@@ -1,7 +1,6 @@
 package com.keydan.chamberoftrivia.dto.request;
 
-import com.keydan.chamberoftrivia.Model.Enums.Difficulty;
-
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,7 +13,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class StartQuizRequest {
+     @NotNull(message = "Category is required")
     private Long categoryId;
-    private Integer questionAmount;
-    private Difficulty difficulty;
 }

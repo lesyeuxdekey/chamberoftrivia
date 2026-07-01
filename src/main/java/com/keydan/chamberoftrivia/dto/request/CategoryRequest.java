@@ -15,10 +15,10 @@ import lombok.Setter;
 @Builder
 public class CategoryRequest {
 
-    @NotBlank
-    @Size(max = 100)
+     @NotBlank(message = "Category name is required")
+    @Size(max = 100, message = "Category name max 100 characters")
     private String name;
 
-    @Size(max = 500)
+    @Size(max = 500, message = "Description max 500 characters")
     private String description;
 }

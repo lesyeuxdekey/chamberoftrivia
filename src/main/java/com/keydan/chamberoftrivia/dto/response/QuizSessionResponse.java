@@ -1,7 +1,5 @@
 package com.keydan.chamberoftrivia.dto.response;
 
-import java.time.LocalDateTime;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,8 +14,10 @@ import lombok.Setter;
 public class QuizSessionResponse {
 
     private Long sessionId;
-    private LocalDateTime startTime;
+
     private Integer score;
+
     private Integer maxScore;
-    private Boolean won;
+
+    private Boolean finished;
 }
